@@ -1,0 +1,23 @@
+name: gotop-timhm
+base: core22
+version: '4.2.0'
+summary: Another terminal based graphical activity monitor
+description: Another terminal based graphical activity monitor, inspired by gtop and vtop, this time written in Go!
+
+grade: devel
+confinement: strict
+
+apps:
+  gotop:
+    command: bin/gotop
+    plugs:
+      - hardware-observe
+      - mount-observe
+
+parts:
+  apps:
+    build-snaps:
+      - go/stable
+    plugin: go
+    source: https://github.com/xxxserxxx/gotop.git
+    source-tag: 'v4.2.0'
